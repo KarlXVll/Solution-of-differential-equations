@@ -1,0 +1,12 @@
+clear all;
+grid on;
+d = 1; d_1 = 1;
+e = 1; e_1 = 3/4;
+m= 1; m_1 = 1/8;
+tspan = [0 25];
+y0 = [0 1];
+[t1,y1] = ode45(@(t,y) odefcn(t,y,d,e,m), tspan, y0);
+[t2,y2] = ode45(@(t,y) odefcn(t,y,d_1,e_1,m_1), tspan, y0);
+plot(t1,y1(:,1), 'b', t1,y1(:,2), 'g');
+pause;
+plot(t2,y2(:,1),'r', t2,y2(:,2),'k');
